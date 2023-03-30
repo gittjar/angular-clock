@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-web-applications": {
+      "hosting": {
+        "angular-kello": [
+          "aika"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-web-applications"
+  }
+}

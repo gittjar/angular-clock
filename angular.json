@@ -91,8 +91,21 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "angular-kello:build:production",
+            "firebaseProject": "angular-web-applications",
+            "firebaseHostingSite": "aika"
+          }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
