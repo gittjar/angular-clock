@@ -1,14 +1,18 @@
 
 <section [style.background-color]="color1" class="keskibox">
-<h1>{{ time | date: 'hh:mm:ss aa' }}</h1>
+<h1>{{ time| date: 'hh:mm:ss aa' }}</h1>
 </section>
 
-<section class="keskibox">
-<h1>{{TimeNow | date:' dd.MM.yyyy'}}</h1>
+<section 
+[style.background-color]="color2" [style.color]="frontcolor1"
+class="keskibox"
+
+>
+<h1>{{ time | date:' dd.MM.yyyy'}}</h1>
 </section>
 
 <section [style.background-color]="color1" class="keskibox">
-<h1>{{TimeNow | date:'EEEE dd,  LLLL, YYYY'}}</h1>
+<h1>{{ time | date:'EEEE dd,  LLLL, YYYY'}}</h1>
 </section>
 
 <hr>
