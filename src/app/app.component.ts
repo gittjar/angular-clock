@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DatePipe } from '@angular/common';
-
 
 @Component({
   selector: 'app-root',
@@ -10,22 +8,22 @@ import { DatePipe } from '@angular/common';
 export class AppComponent implements OnInit {
 
 
-  constructor(public datepipe: DatePipe)
+  constructor()
   {
-   // let currentDateTime =this.datepipe.transform((new Date), 'MM/dd/yyyy h:mm:ss');
-   // console.log(currentDateTime);
   }
 
   title = 'angular-kello';
 
   time = new Date();
-  intervalId : any;
+  intervalId: any;
 
   date = new Date();
   TimeNow = new Date();
-  timeSet: number = 0;
+  timeSet: number = 1;
   interval: any;
   color1: string = '#06E703';
+  color2: string = '#fac48e';
+  frontcolor1: string = 'black';
 
   ngOnInit () : void {
     this.startTimer();
@@ -38,71 +36,45 @@ export class AppComponent implements OnInit {
 
   startTimer() {
     this.interval = setInterval(() => {
-      if(this.TimeNow) {
+      if(this.timeSet) {
         this.timeSet++;
       } else {
       }
       if(this.timeSet > 1){
         this.color1 = '#18E703';
+
       }
       if(this.timeSet > 2){
-        this.color1 = '#37E703';
+        this.color1 = '#d6ca1a';
+        this.color2 = '#5d64e8';
+        this.frontcolor1 = 'white';
       }
       if(this.timeSet > 3){
-        this.color1 = '#59E703';
+        this.color1 = '#5d64e8';
+        this.frontcolor1 = 'white';
       }
       if(this.timeSet > 4){
-        this.color1 = '#8AE703';
+        this.color1 = '#f099e3';
+        this.frontcolor1 = 'black';
+
       }
       if(this.timeSet > 5){
-        this.color1 = '#A9E703';
+        this.color1 = '#48f7ba';
+        this.color2 = '#cccccc';
       }
       if(this.timeSet > 6){
-        this.color1 = '#E7E703';
+        this.color1 = '#fac48e';
+        this.resetTimer();
       }
-    
-
-
-    },5000) // interval 1000 = 1s, for demo 2500 per one = 2,5s
+  
+    },10000) // change sections colors every 10 sec.
   }
 
+  resetTimer() {
+    this.timeSet = 1;
+    this.color1 = '#06E703';
+    this.color2 = '#fac48e';
 
+  }
 
-
-
-
-
-
-
-
-
-
-
-
-  /*
-  time = new Date();
-  hours : number | undefined;
-  msg: string = '';
-  link: string = '';
-
-
-
-
-  getCurrentDate() {
-   setInterval(() => {
-  this.time = new Date(); //set time variable with current date 
-  }, 1000); // set it every one seconds
-}
-
-decide() {this.hours = new Date().getHours();                       
-  console.log("this.hours",this.hours)
-
-if (this.hours < 10) {
-  this.msg = "Hyvää huomenta!"
-  this.link = "www.yle.fi"
-}
-
-
-
-} */
 }
