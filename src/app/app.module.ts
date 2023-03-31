@@ -11,7 +11,6 @@ import localeFi from '@angular/common/locales/fi';
 
 registerLocaleData(localeFi);
 
-
 @NgModule({
   declarations: [
     AppComponent
