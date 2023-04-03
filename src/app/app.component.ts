@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WeatherService } from './weather.service';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
 
 
-  constructor()
-  {
-  }
+  constructor(private hpservice : WeatherService) {}
+
+  helsinkisaa : any;
 
   title = 'angular-kello';
-
   time = new Date();
   intervalId: any;
 
@@ -32,7 +32,22 @@ export class AppComponent implements OnInit {
        this.intervalId = setInterval(() => {
         this.time = new Date();
       }, 1000);
-  }
+
+      // weather
+      this.getWeatherHelsinki()
+      
+    }
+
+    
+
+// Weather Helsinki
+      getWeatherHelsinki(): void{
+        this.hpservice.getHelsinkiData().subscribe ((data: any) => {
+          this.helsinkisaa = data;
+        })
+      }
+
+  // TIMER JOKA VAIHTELEE TAUSTAVÄREJÄ
 
   startTimer() {
     this.interval = setInterval(() => {
