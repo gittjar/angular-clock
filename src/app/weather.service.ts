@@ -11,7 +11,9 @@ export class WeatherService {
 
   constructor(private weatherserviceHTTP : HttpClient) { }
 
-    // Http Options
+  // KESKEN
+  //
+  // Http Options
     httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -23,13 +25,14 @@ export class WeatherService {
   getHelsinkiData(): Observable<any> {
     return this.weatherserviceHTTP.get<any>(this.BASE_URL, this.httpOptions)
 
-    .pipe(retry(1), catchError(this.handleError)
+    // .pipe(retry(1), catchError(this.handleError)
  
-    );
+    ;
   }
 
 
     // Error handling
+    /*
     handleError(error: any) {
       let errorMessage = '';
       if (error.error instanceof ErrorEvent) {
@@ -44,5 +47,6 @@ export class WeatherService {
         return errorMessage;
       });
     }
+    */
 
 }
