@@ -21,7 +21,7 @@ export class WeatherService {
       }),
     };
 
-  BASE_URL = 'http://api.weatherapi.com/v1/current.json?key=7036cc1503804fb8ade110135233103&q=helsinki&aqi=no';
+  BASE_URL = 'https://api.weatherapi.com/v1/current.json?key=7036cc1503804fb8ade110135233103&q=helsinki&aqi=no';
 
   getHelsinkiData(): Observable<any> {
   return this.weatherserviceHTTP.get<any>(this.BASE_URL, this.httpOptions)
