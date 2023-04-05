@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
+import { Helsinki, Location } from './model/Helsinkitime';
 
 @Injectable({
   providedIn: 'root'
@@ -23,13 +24,13 @@ export class WeatherService {
   BASE_URL = 'http://api.weatherapi.com/v1/current.json?key=7036cc1503804fb8ade110135233103&q=helsinki&aqi=no';
 
   getHelsinkiData(): Observable<any> {
-    return this.weatherserviceHTTP.get<any>(this.BASE_URL, this.httpOptions)
+  return this.weatherserviceHTTP.get<any>(this.BASE_URL, this.httpOptions)
 
     // .pipe(retry(1), catchError(this.handleError)
  
     ;
   }
-
+}
 
     // Error handling
     /*
@@ -49,4 +50,4 @@ export class WeatherService {
     }
     */
 
-}
+
