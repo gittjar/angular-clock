@@ -25,41 +25,37 @@ export class AppComponent implements OnInit {
   color1: string = '#06E703';
   color2: string = '#fac48e';
   frontcolor1: string = 'black';
-  // LIITÄ CITY ID HTML koodiin
-  cityid: string = 'moscow';
+  // Tämä cityid equals to input box (maailman sää)
+  cityid: string = '';
 
   ngOnInit () : void {
     this.startTimer();
     
-       // Using Basic Interval
-       this.intervalId = setInterval(() => {
-        this.time = new Date();
-      }, 1000);
+  // Using Basic Interval
+  this.intervalId = setInterval(() => {
+  this.time = new Date();
+  }, 1000);
 
-      // weather helsinki
-      this.getWeatherHelsinki();
-      // weather other city
-      this.getWeatherCity(this.cityid);
+  // weather helsinki
+  this.getWeatherHelsinki();
+  // weather other city
+  this.getWeatherCity(this.cityid);
+  }
+
+  // Weather Helsinki
+  getWeatherHelsinki(): void{
+  this.hpservice.getHelsinkiData().subscribe ((data: any) => {
+  this.helsinkisaa = data;
+  })
     }
 
-  
-// Weather Helsinki
-      getWeatherHelsinki(): void{
-        this.hpservice.getHelsinkiData().subscribe ((data: any) => {
-          this.helsinkisaa = data;
-        })
-      }
+  // Weather käyttäjän antama city
 
-      // Weather käyttäjän antama city
-
-      getWeatherCity(cityid: string): void {
-        this.hpservice.getCityData(cityid).subscribe((data: any) => {
-          this.citydetailweather = data;
-        })
-      }
-
-
-
+  getWeatherCity(cityid: string): void {
+  this.hpservice.getCityData(cityid).subscribe((data: any) => {
+  this.citydetailweather = data;
+  })
+    }
 
   // TIMER JOKA VAIHTELEE TAUSTAVÄREJÄ
 
@@ -71,7 +67,6 @@ export class AppComponent implements OnInit {
       }
       if(this.timeSet > 1){
         this.color1 = '#18E703';
-
       }
       if(this.timeSet > 2){
         this.color1 = '#d6ca1a';
@@ -103,7 +98,5 @@ export class AppComponent implements OnInit {
     this.timeSet = 1;
     this.color1 = '#06E703';
     this.color2 = '#fac48e';
-
   }
-
 }
