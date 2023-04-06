@@ -27,31 +27,34 @@ class="keskibox"
 </section>
 
 <hr>
+
+<div class="weatherbox">
 <p>
-Jarno 2023
-</p>
-
-
-<div class="alert alert-info" role="alert">
-<h5>
   
-    Paikkakunta:
   {{helsinkisaa?.location?.name}}
-  <br>
+  -
   Lämpötila:
   {{helsinkisaa?.current?.temp_c}}
   <br>
   Tuntuu kuin:
   {{helsinkisaa?.current?.feelslike_c}}
-  </h5>
+</p>
   <hr>
+  <article class="saabox-keskiosa">
   <img src="{{helsinkisaa?.current?.condition?.icon}}">
-  <h5>{{helsinkisaa?.current?.condition?.text}}</h5>
-  <hr>
-  <h5>Päivitetty: {{helsinkisaa?.current?.last_updated}}</h5>
-
+  <p>{{helsinkisaa?.current?.condition?.text}}
+  UV säteily: {{helsinkisaa?.current?.uv}}</p>
+</article>
 </div>
 
+Maailman sää:<br>
+<input type="text" (keypress)="getWeatherCity(userInput.value)" #userInput placeholder="kirjoita kaupunki.." />
 
+
+<p>
+{{citydetailweather?.location?.name}}
+{{citydetailweather?.current?.temp_c}}
+<img src="{{helsinkisaa?.current?.condition?.icon}}">
+</p>
 
 

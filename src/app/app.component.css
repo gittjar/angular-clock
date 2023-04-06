@@ -7,9 +7,29 @@ h5 {
     margin-right: 1%;
 }
 
-.alert {
-    width: 200px;
+.weatherbox {
+    width: 170px;
     margin: 1%;
+    padding: 5px;
+    border-radius: 5px;
+    background-image: -webkit-gradient(
+        linear,
+        right bottom,
+        right top,
+        color-stop(0, #B374F2),
+        color-stop(1, #FCE8F3)
+    );
+    background-image: -o-linear-gradient(top, #B374F2 0%, #FCE8F3 100%);
+    background-image: -moz-linear-gradient(top, #B374F2 0%, #FCE8F3 100%);
+    background-image: -webkit-linear-gradient(top, #B374F2 0%, #FCE8F3 100%);
+    background-image: -ms-linear-gradient(top, #B374F2 0%, #FCE8F3 100%);
+    background-image: linear-gradient(to top, #B374F2 0%, #FCE8F3 100%);
+}
+
+.saabox-keskiosa {
+    display: flex;
+    flex-direction: row;
+    padding: 3px;
 }
 
 .navbar-otsikko {

@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   constructor(private hpservice : WeatherService) {}
 
   helsinkisaa : any;
+  citydetailweather : any;
 
   title = 'angular-kello';
   time = new Date();
@@ -24,6 +25,8 @@ export class AppComponent implements OnInit {
   color1: string = '#06E703';
   color2: string = '#fac48e';
   frontcolor1: string = 'black';
+  // LIITÄ CITY ID HTML koodiin
+  cityid: string = 'moscow';
 
   ngOnInit () : void {
     this.startTimer();
@@ -33,19 +36,30 @@ export class AppComponent implements OnInit {
         this.time = new Date();
       }, 1000);
 
-      // weather
-      this.getWeatherHelsinki()
-      
+      // weather helsinki
+      this.getWeatherHelsinki();
+      // weather other city
+      this.getWeatherCity(this.cityid);
     }
 
-    
-
+  
 // Weather Helsinki
       getWeatherHelsinki(): void{
         this.hpservice.getHelsinkiData().subscribe ((data: any) => {
           this.helsinkisaa = data;
         })
       }
+
+      // Weather käyttäjän antama city
+
+      getWeatherCity(cityid: string): void {
+        this.hpservice.getCityData(cityid).subscribe((data: any) => {
+          this.citydetailweather = data;
+        })
+      }
+
+
+
 
   // TIMER JOKA VAIHTELEE TAUSTAVÄREJÄ
 
