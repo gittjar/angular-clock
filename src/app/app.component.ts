@@ -27,6 +27,8 @@ export class AppComponent implements OnInit {
   frontcolor1: string = 'black';
   // Tämä cityid equals to input box (maailman sää)
   cityid: string = '';
+  // tallentaa annettuja kaupunkeja
+  cityItems = new Array();
 
   ngOnInit () : void {
     this.startTimer();
@@ -56,6 +58,23 @@ export class AppComponent implements OnInit {
   this.citydetailweather = data;
   })
     }
+
+    // Kaupunkien säiden tallennus localstorageen!
+    addItem(newItem: string, uv: number) {
+      this.cityItems.push(newItem, uv);
+      this.SaveCity();
+    }
+
+    SaveCity() {
+      localStorage.setItem("mycity", JSON.stringify(this.cityItems));
+    }
+
+    GetCity() {
+      let value = localStorage.getItem("mycity");
+      if (value != '' && value != null && typeof value != "undefined")
+      {
+        this.cityItems = JSON.parse(value!);
+      }}
 
   // TIMER JOKA VAIHTELEE TAUSTAVÄREJÄ
 

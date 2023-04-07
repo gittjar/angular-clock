@@ -27,34 +27,82 @@ class="keskibox"
 </section>
 
 <hr>
-
-<div class="weatherbox">
-<p>
-  
-  {{helsinkisaa?.location?.name}}
-  -
-  Lämpötila:
-  {{helsinkisaa?.current?.temp_c}}
-  <br>
-  Tuntuu kuin:
-  {{helsinkisaa?.current?.feelslike_c}}
-</p>
-  <hr>
-  <article class="saabox-keskiosa">
-  <img src="{{helsinkisaa?.current?.condition?.icon}}">
-  <p>{{helsinkisaa?.current?.condition?.text}}
-  UV säteily: {{helsinkisaa?.current?.uv}}</p>
-</article>
-</div>
-
-Maailman sää:<br>
 <input type="text" (keypress)="getWeatherCity(userInput.value)" #userInput placeholder="kirjoita kaupunki.." />
 
+<section class="weathercards">
 
-<p>
-{{citydetailweather?.location?.name}}
-{{citydetailweather?.current?.temp_c}}
-<img src="{{helsinkisaa?.current?.condition?.icon}}">
-</p>
+<section class="weatherbox">
+  <article class="saabox-keskiosa">
+   <h4> {{citydetailweather?.location?.name}}</h4>
+     <p>
+    Lämpötila:
+    {{citydetailweather?.current?.temp_c}}
+    <br>
+    Tuntuu kuin:
+    {{citydetailweather?.current?.feelslike_c}}
+  </p>
+  <figure>
+  <hr>
+  <img src="{{citydetailweather?.current?.condition?.icon}}">
+  </figure>
+  <hr>
+  <p>{{citydetailweather?.current?.condition?.text}}</p>
+  <p> UV säteily: {{citydetailweather?.current?.uv}}</p>
+</article>
+<button type="button" class="btn btn-primary btn-sm" (click)="addItem(citydetailweather?.location?.name, citydetailweather?.current?.uv)">
+ADD</button>
+</section>
+
+
+
+
+
+
+<section class="weatherbox">
+  <article class="saabox-keskiosa">
+   <h4> {{helsinkisaa?.location?.name}}</h4>
+     <p>
+    Lämpötila:
+    {{helsinkisaa?.current?.temp_c}}
+    <br>
+    Tuntuu kuin:
+    {{helsinkisaa?.current?.feelslike_c}}
+  </p>
+  <figure>
+  <hr>
+  <img src="{{helsinkisaa?.current?.condition?.icon}}">
+  </figure>
+  <hr>
+  <p>{{helsinkisaa?.current?.condition?.text}}</p>
+  <p> UV säteily: {{helsinkisaa?.current?.uv}}</p>
+</article>
+</section>
+
+<!--
+<div *ngFor="let city of cityItems">
+  
+  {{city}}<br>
+ 
+
+ 
+</div>
+-->
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
