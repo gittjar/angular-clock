@@ -73,3 +73,12 @@ p {
     font-size: 0.7rem;
     color: rgb(68, 68, 67);
 }
+
+/* Mobile CSS rules */ 
+@media only screen and (max-width: 425px) 
+{ 
+    input, .weatherbox {
+        width: 100%;
+    }
+}
+
