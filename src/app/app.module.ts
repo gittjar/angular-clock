@@ -23,7 +23,7 @@ registerLocaleData(localeFi);
     NgbModule,
     HttpClientModule
   ],
-  providers: [DatePipe, { provide: LOCALE_ID, useValue: 'fi' }], // this provides
+  providers: [DatePipe, { provide: LOCALE_ID, useValue: 'fi' }], // this provides FIN 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
