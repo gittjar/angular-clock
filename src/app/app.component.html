@@ -63,6 +63,7 @@ ADD</button>
 <section class="weatherbox">
   <article class="saabox-keskiosa">
    <h4> {{helsinkisaa?.location?.name}}</h4>
+   <p>{{helsinkisaa?.location?.localtime}}</p>
      <p>
     Lämpötila:
     {{helsinkisaa?.current?.temp_c}}
@@ -80,29 +81,140 @@ ADD</button>
 </article>
 </section>
 
-<!--
-<div *ngFor="let city of cityItems">
-  
-  {{city}}<br>
- 
 
- 
-</div>
--->
+<!-- TÄSTÄ ALKAA ENNUSTETTU SÄÄ-->
+<!--KLO 8:00-->
+<section class="weatherbox" *ngIf="helsinkiforecastweather?.location.localtime < helsinkiforecastweather?.forecast.forecastday[0].hour[8].time">
+  <article class="saabox-keskiosa">
+   <h4> {{helsinkiforecastweather?.location?.name}}</h4>
+   <p>{{helsinkiforecastweather?.forecast.forecastday[0].hour[8].time}}</p>
 
-
-
+     <p>
+    Lämpötila:
+    {{helsinkiforecastweather?.forecast.forecastday[0].hour[8].temp_c}}
+    <br>
+    Tuntuu kuin:
+    {{helsinkiforecastweather?.forecast.forecastday[0].hour[8].feelslike_c}}
+  </p>
+  <figure>
+  <hr>
+  <img src="{{helsinkiforecastweather?.forecast.forecastday[0].hour[8].condition.icon}}
+  ">
+  </figure>
+  <hr>
+  <p>{{helsinkiforecastweather?.forecast.forecastday[0].hour[8].condition.text}}</p>
+  <p> UV säteily:   {{helsinkiforecastweather?.forecast.forecastday[0].hour[8].uv}}</p>
+  <p>{{helsinkiforecastweather?.alerts.alert[0].desc}}</p>
+</article>
 </section>
 
 
 
+<!-- KLO 11:00 -->
+<section class="weatherbox" *ngIf="helsinkiforecastweather?.location.localtime < helsinkiforecastweather?.forecast.forecastday[0].hour[11].time">
+  <article class="saabox-keskiosa">
+   <h4> {{helsinkiforecastweather?.location?.name}}</h4>
+   <p>{{helsinkiforecastweather?.forecast.forecastday[0].hour[11].time}}</p>
 
+     <p>
+    Lämpötila:
+    {{helsinkiforecastweather?.forecast.forecastday[0].hour[11].temp_c}}
+    <br>
+    Tuntuu kuin:
+    {{helsinkiforecastweather?.forecast.forecastday[0].hour[11].feelslike_c}}
+  </p>
+  <figure>
+  <hr>
+  <img src="{{helsinkiforecastweather?.forecast.forecastday[0].hour[11].condition.icon}}
+  ">
+  </figure>
+  <hr>
+  <p>{{helsinkiforecastweather?.forecast.forecastday[0].hour[11].condition.text}}</p>
+  <p> UV säteily:   {{helsinkiforecastweather?.forecast.forecastday[0].hour[11].uv}}</p>
+  <p> {{helsinkiforecastweather?.alerts.alert[0].desc}}</p>
 
+</article>
+</section>
 
+<!--KELLO 15-->
+<section class="weatherbox" *ngIf="helsinkiforecastweather?.location.localtime < helsinkiforecastweather?.forecast.forecastday[0].hour[15].time">
+  <article class="saabox-keskiosa">
+   <h4> {{helsinkiforecastweather?.location?.name}}</h4>
+   <p>{{helsinkiforecastweather?.forecast.forecastday[0].hour[15].time}}</p>
 
+     <p>
+    Lämpötila:
+    {{helsinkiforecastweather?.forecast.forecastday[0].hour[15].temp_c}}
+    <br>
+    Tuntuu kuin:
+    {{helsinkiforecastweather?.forecast.forecastday[0].hour[15].feelslike_c}}
+  </p>
+  <figure>
+  <hr>
+  <img src="{{helsinkiforecastweather?.forecast.forecastday[0].hour[15].condition.icon}}
+  ">
+  </figure>
+  <hr>
+  <p>{{helsinkiforecastweather?.forecast.forecastday[0].hour[15].condition.text}}</p>
+  <p> UV säteily:   {{helsinkiforecastweather?.forecast.forecastday[0].hour[15].uv}}</p>
+  <p> {{helsinkiforecastweather?.alerts.alert[0].desc}}</p>
 
+</article>
+</section>
 
+<!--KELLO 20-->
+<section class="weatherbox" *ngIf="helsinkiforecastweather?.location.localtime < helsinkiforecastweather?.forecast.forecastday[0].hour[20].time">
+  <article class="saabox-keskiosa">
+   <h4> {{helsinkiforecastweather?.location?.name}}</h4>
+   <p>{{helsinkiforecastweather?.forecast.forecastday[0].hour[20].time}}</p>
 
+     <p>
+    Lämpötila:
+    {{helsinkiforecastweather?.forecast.forecastday[0].hour[20].temp_c}}
+    <br>
+    Tuntuu kuin:
+    {{helsinkiforecastweather?.forecast.forecastday[0].hour[20].feelslike_c}}
+  </p>
+  <figure>
+  <hr>
+  <img src="{{helsinkiforecastweather?.forecast.forecastday[0].hour[20].condition.icon}}
+  ">
+  </figure>
+  <hr>
+  <p>{{helsinkiforecastweather?.forecast.forecastday[0].hour[20].condition.text}}</p>
+  <p> UV säteily:   {{helsinkiforecastweather?.forecast.forecastday[0].hour[20].uv}}</p>
+  <p> {{helsinkiforecastweather?.alerts.alert[0].desc}}</p>
+
+</article>
+</section>
+
+<!--KELLO 23-->
+<section class="weatherbox" *ngIf="helsinkiforecastweather?.location.localtime < helsinkiforecastweather?.forecast.forecastday[0].hour[23].time">
+  <article class="saabox-keskiosa">
+   <h4> {{helsinkiforecastweather?.location?.name}}</h4>
+   <p>{{helsinkiforecastweather?.forecast.forecastday[0].hour[23].time}}</p>
+
+     <p>
+    Lämpötila:
+    {{helsinkiforecastweather?.forecast.forecastday[0].hour[23].temp_c}}
+    <br>
+    Tuntuu kuin:
+    {{helsinkiforecastweather?.forecast.forecastday[0].hour[23].feelslike_c}}
+  </p>
+  <figure>
+  <hr>
+  <img src="{{helsinkiforecastweather?.forecast.forecastday[0].hour[23].condition.icon}}
+  ">
+  </figure>
+  <hr>
+  <p>{{helsinkiforecastweather?.forecast.forecastday[0].hour[23].condition.text}}</p>
+  <p> UV säteily:   {{helsinkiforecastweather?.forecast.forecastday[0].hour[23].uv}}</p>
+  <p> {{helsinkiforecastweather?.alerts.alert[0].desc}}</p>
+
+</article>
+</section>
+
+</section>
 
 
 

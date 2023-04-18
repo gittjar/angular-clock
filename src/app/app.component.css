@@ -10,6 +10,8 @@ h5 {
 .weathercards {
     display: flex;
     flex-direction: row;
+    
+  
 }
 
 /* kuvien määritykset */
@@ -23,13 +25,12 @@ figure img {
 }
 
 input {
-    margin-left: 1%;
+    margin: 1%;
+   
 }
 
 .weatherbox {
     width: 170px;
-    margin: 1%;
-    padding: 3px;
     border-radius: 5px;
     background-image: -webkit-gradient(
         linear,
@@ -43,6 +44,7 @@ input {
     background-image: -webkit-linear-gradient(top, #B374F2 0%, #FCE8F3 100%);
     background-image: -ms-linear-gradient(top, #B374F2 0%, #FCE8F3 100%);
     background-image: linear-gradient(to top, #B374F2 0%, #FCE8F3 100%);
+    margin: 1%;
 }
 
 .saabox-keskiosa {
@@ -79,6 +81,11 @@ p {
 { 
     input, .weatherbox {
         width: 100%;
+    }
+
+    .weathercards {
+        display: flex;
+        flex-direction: column;
     }
 }
 

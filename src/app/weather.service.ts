@@ -20,6 +20,12 @@ export class WeatherService {
   getHelsinkiData(): Observable<any> {
   return this.weatherserviceHTTP.get<any>(this.Helsinki_URL, this.httpOptions)}
 
+  // Forecast Helsinki
+  ForecastHelsinkiUrl ='http://api.weatherapi.com/v1/forecast.json?key=7036cc1503804fb8ade110135233103&q=Helsinki&days=1&aqi=no&alerts=yes';
+  getHelsinkiForecastData(): Observable<any> {
+    return this.weatherserviceHTTP.get<any>(this.ForecastHelsinkiUrl, this.httpOptions)
+  }
+
   //
   // By city search
   //

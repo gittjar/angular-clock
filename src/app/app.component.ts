@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   constructor(private hpservice : WeatherService) {}
 
   helsinkisaa : any;
+  helsinkiforecastweather : any;
   citydetailweather : any;
 
   title = 'angular-kello';
@@ -40,6 +41,8 @@ export class AppComponent implements OnInit {
 
   // weather helsinki
   this.getWeatherHelsinki();
+  // forecast helsinki
+  this.getForecastHelsinki();
   // weather other city
   this.getWeatherCity(this.cityid);
   }
@@ -50,6 +53,13 @@ export class AppComponent implements OnInit {
   this.helsinkisaa = data;
   })
     }
+
+  // Weather Forecast Helsinki
+  getForecastHelsinki(): void {
+    this.hpservice.getHelsinkiForecastData().subscribe ((data: any) =>{
+      this.helsinkiforecastweather = data;
+    })
+  }  
 
   // Weather käyttäjän antama city
 
