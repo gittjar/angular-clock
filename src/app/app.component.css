@@ -1,3 +1,64 @@
+.navbar {
+    margin-bottom: 2%;
+}
+
+h5 { 
+    color:rgb(26, 67, 163);
+    margin-right: 1%;
+}
+
+.weathercards {
+    display: flex;
+    flex-direction: row;
+    
+  
+}
+
+/* kuvien määritykset */
+figure {
+    width: 100%;
+   /* border: black dashed 1px; */
+    padding: 0rem;
+}    
+figure img {
+    max-width: 100%; 
+}
+
+input {
+    margin: 1%;
+   
+}
+
+.weatherbox {
+    width: 170px;
+    border-radius: 5px;
+    background-image: -webkit-gradient(
+        linear,
+        right bottom,
+        right top,
+        color-stop(0, #B374F2),
+        color-stop(1, #FCE8F3)
+    );
+    background-image: -o-linear-gradient(top, #B374F2 0%, #FCE8F3 100%);
+    background-image: -moz-linear-gradient(top, #B374F2 0%, #FCE8F3 100%);
+    background-image: -webkit-linear-gradient(top, #B374F2 0%, #FCE8F3 100%);
+    background-image: -ms-linear-gradient(top, #B374F2 0%, #FCE8F3 100%);
+    background-image: linear-gradient(to top, #B374F2 0%, #FCE8F3 100%);
+    margin: 1%;
+}
+
+.saabox-keskiosa {
+    text-align: center;
+}
+ul {
+    font-size: 0.7rem;
+}
+
+.navbar-otsikko {
+    color:rgb(94, 94, 0);
+    padding-left: 1%;
+}
+
 .keskibox {
     width:100%;
     border-radius: 20px;
@@ -14,3 +75,17 @@ p {
     font-size: 0.7rem;
     color: rgb(68, 68, 67);
 }
+
+/* Mobile CSS rules */ 
+@media only screen and (max-width: 425px) 
+{ 
+    input, .weatherbox {
+        width: 100%;
+    }
+
+    .weathercards {
+        display: flex;
+        flex-direction: column;
+    }
+}
+

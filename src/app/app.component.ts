@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WeatherService } from './weather.service';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
 
 
-  constructor()
-  {
-  }
+  constructor(private hpservice : WeatherService) {}
+
+  helsinkisaa : any;
+  helsinkiforecastweather : any;
+  citydetailweather : any;
 
   title = 'angular-kello';
-
   time = new Date();
   intervalId: any;
 
@@ -24,15 +26,67 @@ export class AppComponent implements OnInit {
   color1: string = '#06E703';
   color2: string = '#fac48e';
   frontcolor1: string = 'black';
+  // Tämä cityid equals to input box (maailman sää)
+  cityid: string = '';
+  // tallentaa annettuja kaupunkeja
+  cityItems = new Array();
 
   ngOnInit () : void {
     this.startTimer();
     
-       // Using Basic Interval
-       this.intervalId = setInterval(() => {
-        this.time = new Date();
-      }, 1000);
+  // Using Basic Interval
+  this.intervalId = setInterval(() => {
+  this.time = new Date();
+  }, 1000);
+
+  // weather helsinki
+  this.getWeatherHelsinki();
+  // forecast helsinki
+  this.getForecastHelsinki();
+  // weather other city
+  this.getWeatherCity(this.cityid);
   }
+
+  // Weather Helsinki
+  getWeatherHelsinki(): void{
+  this.hpservice.getHelsinkiData().subscribe ((data: any) => {
+  this.helsinkisaa = data;
+  })
+    }
+
+  // Weather Forecast Helsinki
+  getForecastHelsinki(): void {
+    this.hpservice.getHelsinkiForecastData().subscribe ((data: any) =>{
+      this.helsinkiforecastweather = data;
+    })
+  }  
+
+  // Weather käyttäjän antama city
+
+  getWeatherCity(cityid: string): void {
+  this.hpservice.getCityData(cityid).subscribe((data: any) => {
+  this.citydetailweather = data;
+  })
+    }
+
+    // Kaupunkien säiden tallennus localstorageen!
+    addItem(newItem: string, uv: number) {
+      this.cityItems.push(newItem, uv);
+      this.SaveCity();
+    }
+
+    SaveCity() {
+      localStorage.setItem("mycity", JSON.stringify(this.cityItems));
+    }
+
+    GetCity() {
+      let value = localStorage.getItem("mycity");
+      if (value != '' && value != null && typeof value != "undefined")
+      {
+        this.cityItems = JSON.parse(value!);
+      }}
+
+  // TIMER JOKA VAIHTELEE TAUSTAVÄREJÄ
 
   startTimer() {
     this.interval = setInterval(() => {
@@ -42,7 +96,6 @@ export class AppComponent implements OnInit {
       }
       if(this.timeSet > 1){
         this.color1 = '#18E703';
-
       }
       if(this.timeSet > 2){
         this.color1 = '#d6ca1a';
@@ -74,7 +127,5 @@ export class AppComponent implements OnInit {
     this.timeSet = 1;
     this.color1 = '#06E703';
     this.color2 = '#fac48e';
-
   }
-
 }
