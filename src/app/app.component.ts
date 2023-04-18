@@ -8,7 +8,6 @@ import { WeatherService } from './weather.service';
 })
 export class AppComponent implements OnInit {
 
-
   constructor(private hpservice : WeatherService) {}
 
   helsinkisaa : any;
